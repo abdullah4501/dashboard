@@ -36,7 +36,6 @@ export default function Tables() {
       status: "Complete",
     },
   ]
-
   const leads = [
     {
       img: "./images/user2.jpg",
@@ -72,7 +71,7 @@ export default function Tables() {
     },
   ]
 
-  // Use one state object to track selections, but namespace keys by table type
+  // Use one state object to track selections, namespaced by table
   const [selectedRows, setSelectedRows] = useState({})
 
   const handleCheckboxChange = (table, idx) => {
@@ -80,6 +79,16 @@ export default function Tables() {
       ...prev,
       [`${table}-${idx}`]: !prev[`${table}-${idx}`],
     }))
+  }
+
+  // Header checkbox handler: toggles all rows for a given table
+  const handleHeaderCheckboxChange = (table, data) => {
+    const allSelected = data.every((_, idx) => selectedRows[`${table}-${idx}`])
+    const newSelected = { ...selectedRows }
+    data.forEach((_, idx) => {
+      newSelected[`${table}-${idx}`] = !allSelected
+    })
+    setSelectedRows(newSelected)
   }
 
   // Helper function to truncate text to 5 words
@@ -99,9 +108,13 @@ export default function Tables() {
           <table className="min-w-full table-auto border-collapse orders">
             <thead>
               <tr className="bg-black text-white whitespace-nowrap">
-                {/* Header Icon Column */}
                 <th className="py-3 px-4 text-center">
-                  <span className="mx-auto hdr-box" />
+                  <input
+                    type="checkbox"
+                    checked={orders.every((_, idx) => selectedRows[`orders-${idx}`])}
+                    onChange={() => handleHeaderCheckboxChange("orders", orders)}
+                    className="h-5 w-5 accent-[#FBB040] rounded-lg border-gray-300 focus:ring-0 cursor-pointer custom-checkbox appearance-none"
+                  />
                 </th>
                 <th className="py-3 px-4 text-left font-medium">Order number</th>
                 <th className="py-3 px-4 text-left font-medium">Date</th>
@@ -113,10 +126,7 @@ export default function Tables() {
             </thead>
             <tbody>
               {orders.map((order, idx) => (
-                <tr
-                  key={idx}
-                  className="border-b-2 border-b-gray-100 last:border-b-0 whitespace-nowrap"
-                >
+                <tr key={idx} className="border-b-2 border-b-gray-100 last:border-b-0 whitespace-nowrap">
                   <td className="py-[22px] px-4 text-center">
                     <input
                       type="checkbox"
@@ -134,10 +144,7 @@ export default function Tables() {
                     {order.status === "Complete" ? (
                       <span
                         className="px-3 py-1 rounded-full text-sm font-medium"
-                        style={{
-                          backgroundColor: "#E9F9F1",
-                          color: "#20C375",
-                        }}
+                        style={{ backgroundColor: "#E9F9F1", color: "#20C375" }}
                       >
                         {order.status}
                       </span>
@@ -161,9 +168,14 @@ export default function Tables() {
           <table className="min-w-full table-auto border-collapse leads">
             <thead>
               <tr className="bg-black text-white whitespace-nowrap">
-                {/* Header Icon Column */}
-                <th className="py-3 px-4 text-center d-flex">
-                  <span className="mx-auto hdr-box " />
+                <th className="py-3 px-4 text-center">
+                  <input
+                    type="checkbox"
+                    checked={leads.every((_, idx) => selectedRows[`leads-${idx}`])}
+                    onChange={() => handleHeaderCheckboxChange("leads", leads)}
+                    className="h-5 w-5 accent-[#FBB040] rounded-lg border-gray-300 focus:ring-0 cursor-pointer custom-checkbox appearance-none"
+                  />
+                  
                 </th>
                 <th className="py-3 px-4 text-left font-medium">Name</th>
                 <th className="py-3 px-4 text-left font-medium">Email</th>
@@ -174,10 +186,7 @@ export default function Tables() {
             </thead>
             <tbody>
               {leads.map((lead, idx) => (
-                <tr
-                  key={idx}
-                  className="border-b-2 border-b-gray-100 last:border-b-0 whitespace-nowrap"
-                >
+                <tr key={idx} className="border-b-2 border-b-gray-100 last:border-b-0 whitespace-nowrap">
                   <td className="py-[22px] px-4 text-center">
                     <input
                       type="checkbox"
@@ -210,9 +219,13 @@ export default function Tables() {
           <table className="min-w-full table-auto border-collapse leads">
             <thead>
               <tr className="bg-black text-white whitespace-nowrap">
-                {/* Header Icon Column */}
-                <th className="py-3 px-4 text-center d-flex">
-                  <span className="mx-auto hdr-box " />
+                <th className="py-3 px-4 text-center">
+                  <input
+                    type="checkbox"
+                    checked={leads.every((_, idx) => selectedRows[`messages-${idx}`])}
+                    onChange={() => handleHeaderCheckboxChange("messages", leads)}
+                    className="h-5 w-5 accent-[#FBB040] rounded-lg border-gray-300 focus:ring-0 cursor-pointer custom-checkbox appearance-none"
+                  />
                 </th>
                 <th className="py-3 px-4 text-left font-medium">Name</th>
                 <th className="py-3 px-4 text-left font-medium">Email</th>
@@ -223,10 +236,7 @@ export default function Tables() {
             </thead>
             <tbody>
               {leads.map((lead, idx) => (
-                <tr
-                  key={idx}
-                  className="border-b-2 border-b-gray-100 last:border-b-0 whitespace-nowrap"
-                >
+                <tr key={idx} className="border-b-2 border-b-gray-100 last:border-b-0 whitespace-nowrap">
                   <td className="py-[22px] px-4 text-center">
                     <input
                       type="checkbox"

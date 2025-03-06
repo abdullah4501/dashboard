@@ -123,23 +123,23 @@ export default function Dashboard() {
       <h1 className="text-2xl font-semibold text-gray-800 mb-4">Dashboard</h1>
 
       {/* TABS ROW */}
-      <div className="flex items-center space-x-4 mb-6">
+      <div className="flex space-x-4 mb-6">
         <button
-          className="px-2 py-2 text-[#FBB040] font-medium text-[18px]"
+          className="px-2 py-2 text-[#FBB040] font-medium text-[18px] text-left"
           style={{ borderBottom: "2px solid #FBB040" }}
         >
           Today sales
         </button>
-        <button className="px-2 py-2 rounded-full text-gray-600 font-medium text-[18px] hover:bg-gray-200 transition">
+        <button className="px-2 py-2 rounded-full text-gray-600 font-medium text-[18px] hover:bg-gray-200 transition text-left">
           Today number of orders
         </button>
-        <button className="px-2 py-2 rounded-full text-gray-600 font-medium text-[18px] hover:bg-gray-200 transition">
+        <button className="px-2 py-2 rounded-full text-gray-600 font-medium text-[18px] hover:bg-gray-200 transition text-left">
           Total leads/Chats
         </button>
-        <button className="px-2 py-2 rounded-full text-gray-600 font-medium text-[18px] hover:bg-gray-200 transition">
+        <button className="px-2 py-2 rounded-full text-gray-600 font-medium text-[18px] hover:bg-gray-200 transition text-left">
           Total sales
         </button>
-        <button className="px-2 py-2 rounded-full text-gray-600 font-medium text-[18px] hover:bg-gray-200 transition">
+        <button className="px-2 py-2 rounded-full text-gray-600 font-medium text-[18px] hover:bg-gray-200 transition text-left">
           Total orders
         </button>
       </div>
@@ -199,7 +199,7 @@ export default function Dashboard() {
         </div>
 
         {/* GRID OF 5 MINI-CARDS */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
           {statsData.map((stat) => {
             // Determine growth color
             const isNegative = stat.growth.startsWith("-")

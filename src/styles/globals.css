@@ -7,7 +7,9 @@ h1, h2, h3, h4, h5, h6, td, span{
 body, h1,h2,h3,h4,h5,h6,p,span,a,button{
   font-family: "Jost", sans-serif;
 }
-
+p{
+  line-height: 20px;
+}
 body {
   color: var(--foreground);
   background: var(--background);
@@ -132,4 +134,12 @@ border-color: #FBB040;
   border: 1px solid #E7E7E7;
   border-radius: 8px;
   padding: 8px;
+}
+.img_group{
+  justify-content: end;
+}
+@media screen and (max-width: 768px) {
+  .img_group{
+    justify-content: start;
+  }
 }

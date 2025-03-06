@@ -26,17 +26,13 @@ export default function Verify() {
 
   return (
     <>
-      {/* The card with text + single image on the right */}
-      <div className="bg-white rounded-xl shadow p-6 mt-6 flex items-center justify-between">
-        {/* LEFT SIDE: Title, text, button */}
-        <div className="max-w-lg pr-4">
+      <div className="bg-white rounded-xl shadow px-6 mt-6 grid grid-cols-1 md:grid-cols-2 justify-between">
+        <div className="max-w-lg pr-4 py-6">
           <h3 className="text-2xl font-semibold text-gray-800 mb-2">
             This month statistics
           </h3>
-          <p className=" text-gray-600">
-            Embark on a journey of a lifetime with Wanderlust Adventures!
-            We are your trusted travel companions, dedicated to curating
-            extraordinary experiences that will leave you breathless.
+          <p className="text-[#9291A5]">
+          Embark on a journey of a lifetime with Wanderlust Adventures! We are your trusted travel companions, dedicated to curating extraordinary experiences that will leave you breathless. From mesmerizing landscapes to vibrant cultures, our expertly crafted itineraries will take you to the most captivating destinations across the globe.
           </p>
           <button
             onClick={handleOpenModal}
@@ -45,16 +41,16 @@ export default function Verify() {
             Verify yourself
           </button>
         </div>
-
-        {/* RIGHT SIDE: Single image */}
-        <div className="flex-shrink-0">
+        <div className="flex img_group">
           <img
             src="/images/group.png"
             alt="Group"
-            className="w-[350px] h-[200px] object-cover rounded-lg"
+            className="w-[350px] object-cover rounded-lg"
           />
+
         </div>
       </div>
+
 
       {/* ---------------- FIRST MODAL (Step 1) ---------------- */}
       {showModal && !showSecondModal && !showThirdModal && (

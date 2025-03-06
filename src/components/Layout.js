@@ -3,7 +3,7 @@ import Header from "./Header"
 
 export default function Layout({ children }) {
   return (
-    <div className="min-h-screen flex bg-gray-50 font-sans">
+    <div className="min-h-screen flex font-sans w-full">
       {/* Sidebar */}
       <Sidebar />
 
