@@ -1,6 +1,12 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-
+h1, h2, h3, h4, h5, h6, td, span{
+  color: #1E1B39;
+}
+body, h1,h2,h3,h4,h5,h6,p,span,a,button{
+  font-family: "Jost", sans-serif;
+}
 @theme {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
@@ -57,4 +63,50 @@ body {
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
   overflow: hidden;
+}
+.company, .individual{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border: 2px solid #A1A1A1;
+  border-radius: 12px;
+  padding: 22px 40px;
+  color: #A1A1A1;
+  font-size: 20px;
+  cursor: pointer;
+}
+.company.active, .individual.active{
+background:#fddba74f;
+color: #FBB040;
+border-color: #FBB040;
+}
+.business-select{
+  background-color: #fff;
+  border-radius: 20px;
+}
+.business-select h2{
+  color: #282828;
+  font-size: 24px;
+  font-weight: 500;
+}
+.business-select p{
+  color: #949CA9;
+  font-size: 14px;
+  font-weight: 400;
+}
+.business-type p{
+  font-size: 18px;
+}
+.business-type svg{
+  font-size: 30px;
+}
+.business-select .btn-next{
+  width: 100%;
+  background: #FBB040;
+  border-radius: 100px;
+  padding: 12px;
+  cursor: pointer;
+  color: #fff;
 }

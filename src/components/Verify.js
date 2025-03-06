@@ -49,82 +49,65 @@ export default function Verify() {
       {showModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-[rgba(0,0,0,0.7)]">
           {/* Modal Box */}
-          <div className="bg-white rounded-[30px] shadow-lg p-8 w-[440px] relative">
+          <div className="business-select shadow-lg p-8 w-[440px] relative">
             {/* Close Button (top-right) */}
-            <button
-              onClick={handleCloseModal}
-              className="absolute top-5 right-5 text-gray-400 hover:text-gray-600"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
 
             {/* Brand/Logo at the top */}
             <div className="flex items-center justify-center mb-4">
               <img
                 src="/images/logo.png"
                 alt="Logo"
-                className="w-16 h-16 object-contain"
+                className="w-35 object-contain"
               />
             </div>
-
-            {/* Heading & Subtext */}
-            <h2 className="text-2xl font-bold text-center mb-2">
+            
+            <h2 className="text-xl font-medium mb-2">
               Select Business Type
             </h2>
-            <p className="text-center text-gray-500 mb-6 px-4 leading-relaxed">
+            <p className= "text-gray-500 mb-6 leading-relaxed">
               Classify your business type based on industry, allowing for
               tailored strategies and targeted approaches.
             </p>
 
             {/* Two Options: Company / Individual */}
-            <div className="flex items-center justify-center gap-6 mb-6">
+            <div className=" business-type flex items-center justify-center gap-6 mb-6">
               {/* Company Button */}
-              <button
+              <div
                 onClick={() => setSelectedType("company")}
-                className={`
-                  flex items-center justify-center gap-2 py-3 px-6 rounded-lg text-lg font-semibold
-                  border-2 transition 
+                className={`company transition 
                   ${
                     selectedType === "company"
-                      ? `border-[${YELLOW}] bg-[${YELLOW}] text-black`
-                      : "border-gray-300 bg-white text-gray-600 hover:border-[#FBB040]"
+                      ? `active`
+                      : ""
                   }
                 `}
               >
                 <FiBriefcase className="text-xl" />
-                Company
-              </button>
+                <p>
+                  Company
+                </p>
+              </div>
 
               {/* Individual Button */}
-              <button
+              <div
                 onClick={() => setSelectedType("individual")}
-                className={`
-                  flex items-center justify-center gap-2 py-3 px-6 rounded-lg text-lg font-semibold
-                  border-2 transition
+                className={`individual transition
                   ${
                     selectedType === "individual"
-                      ? `border-[${YELLOW}] bg-[${YELLOW}] text-black`
-                      : "border-gray-300 bg-white text-gray-600 hover:border-[#FBB040]"
+                      ? `active`
+                      : ""
                   }
                 `}
               >
                 <FiUser className="text-xl" />
-                Individual
-              </button>
+                <p>Individual</p>
+              </div>
             </div>
 
             {/* Next Button at the bottom */}
             <div className="text-center">
               <button
-                className="bg-[#FBB040] text-black px-10 py-3 rounded-full hover:bg-orange-400 transition text-lg font-semibold"
+                className="btn-next transition"
                 onClick={() => {
                   // TODO: handle next step logic here
                   console.log("Selected type:", selectedType)
