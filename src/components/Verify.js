@@ -3,15 +3,22 @@ import { FiBriefcase, FiUser } from "react-icons/fi"
 
 export default function Verify() {
   const [showModal, setShowModal] = useState(false)
-
-  // Track which option is selected: "company" or "individual" (or null initially)
   const [selectedType, setSelectedType] = useState(null)
 
-  const handleOpenModal = () => setShowModal(true)
-  const handleCloseModal = () => setShowModal(false)
+  // Controls the second modal
+  const [showSecondModal, setShowSecondModal] = useState(false)
 
-  // Reusable color code for active border
-  const YELLOW = "#FBB040"
+  // Open the first modal
+  const handleOpenModal = () => {
+    setShowModal(true)
+    setShowSecondModal(false)
+  }
+
+  // Close everything
+  const handleCloseModal = () => {
+    setShowModal(false)
+    setShowSecondModal(false)
+  }
 
   return (
     <>
@@ -22,7 +29,7 @@ export default function Verify() {
           <h3 className="text-2xl font-semibold text-gray-800 mb-2">
             This month statistics
           </h3>
-          <p className="text-sm text-gray-600">
+          <p className=" text-gray-600">
             Embark on a journey of a lifetime with Wanderlust Adventures!
             We are your trusted travel companions, dedicated to curating
             extraordinary experiences that will leave you breathless.
@@ -45,14 +52,16 @@ export default function Verify() {
         </div>
       </div>
 
-      {/* MODAL OVERLAY + CONTENT */}
-      {showModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-[rgba(0,0,0,0.7)]">
-          {/* Modal Box */}
-          <div className="business-select shadow-lg p-8 w-[440px] relative">
-            {/* Close Button (top-right) */}
-
-            {/* Brand/Logo at the top */}
+      {/* ---------------- FIRST MODAL (Step 1) ---------------- */}
+      {showModal && !showSecondModal && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-[rgba(0,0,0,0.7)]"
+          onClick={handleCloseModal}
+        >
+          <div
+            className="business-select shadow-lg p-8 w-[440px] relative"
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className="flex items-center justify-center mb-4">
               <img
                 src="/images/logo.png"
@@ -60,44 +69,32 @@ export default function Verify() {
                 className="w-35 object-contain"
               />
             </div>
-            
-            <h2 className="text-xl font-medium mb-2">
-              Select Business Type
-            </h2>
-            <p className= "text-gray-500 mb-6 leading-relaxed">
+
+            <h2 className="text-xl font-medium mb-2">Select Business Type</h2>
+            <p className="text-gray-500 mb-6 leading-relaxed">
               Classify your business type based on industry, allowing for
               tailored strategies and targeted approaches.
             </p>
 
             {/* Two Options: Company / Individual */}
-            <div className=" business-type flex items-center justify-center gap-6 mb-6">
+            <div className="business-type flex items-center justify-center gap-6 mb-6">
               {/* Company Button */}
               <div
                 onClick={() => setSelectedType("company")}
-                className={`company transition 
-                  ${
-                    selectedType === "company"
-                      ? `active`
-                      : ""
-                  }
-                `}
+                className={`company transition ${
+                  selectedType === "company" ? "active" : ""
+                }`}
               >
                 <FiBriefcase className="text-xl" />
-                <p>
-                  Company
-                </p>
+                <p>Company</p>
               </div>
 
               {/* Individual Button */}
               <div
                 onClick={() => setSelectedType("individual")}
-                className={`individual transition
-                  ${
-                    selectedType === "individual"
-                      ? `active`
-                      : ""
-                  }
-                `}
+                className={`individual transition ${
+                  selectedType === "individual" ? "active" : ""
+                }`}
               >
                 <FiUser className="text-xl" />
                 <p>Individual</p>
@@ -109,8 +106,152 @@ export default function Verify() {
               <button
                 className="btn-next transition"
                 onClick={() => {
-                  // TODO: handle next step logic here
                   console.log("Selected type:", selectedType)
+                  setShowSecondModal(true)
+                }}
+              >
+                Next
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ---------------- SECOND MODAL (Step 2) ---------------- */}
+      {showModal && showSecondModal && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-[rgba(0,0,0,0.7)]"
+          onClick={handleCloseModal}
+        >
+          <div
+            className="business-select shadow-lg p-8 w-[440px] relative"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h2 className="text-xl font-medium mb-2">Add your company details</h2>
+            <p className="text-gray-500 mb-6 leading-relaxed">
+              Classify your business type based on industry, allowing for
+              tailored strategies and targeted approaches.
+            </p>
+
+            {/* The 9 Fields Form */}
+            <form className="space-y-4 company-details-form">
+              {/* 1. Company name */}
+              <div>
+                <label className="block font-medium mb-1">
+                  Company name
+                </label>
+                <input
+                  type="text"
+                  placeholder="Write here"
+                  className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none"
+                />
+              </div>
+
+              {/* 2. Registered address */}
+              <div>
+                <label className="block  font-medium mb-1">
+                  Registered address
+                </label>
+                <input
+                  type="text"
+                  placeholder="Write here"
+                  className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none"
+                />
+              </div>
+
+              {/* 3. Email */}
+              <div>
+                <label className="block  font-medium mb-1">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  placeholder="Write here"
+                  className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none"
+                />
+              </div>
+
+              {/* 4. Phone number */}
+              <div>
+                <label className="block  font-medium mb-1">
+                  Phone number
+                </label>
+                <input
+                  type="tel"
+                  placeholder="Write here"
+                  className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none"
+                />
+              </div>
+
+              {/* 5. Representative name */}
+              <div>
+                <label className="block  font-medium mb-1">
+                  Representative name
+                </label>
+                <input
+                  type="text"
+                  placeholder="Write here"
+                  className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none"
+                />
+              </div>
+
+              {/* 6. Position */}
+              <div>
+                <label className="block  font-medium mb-1">
+                  Position
+                </label>
+                <input
+                  type="text"
+                  placeholder="Write here"
+                  className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none"
+                />
+              </div>
+
+              {/* 7. Industry sector */}
+              <div>
+                <label className="block  font-medium mb-1">
+                  Industry sector
+                </label>
+                <input
+                  type="text"
+                  placeholder="Write here"
+                  className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none"
+                />
+              </div>
+
+              {/* 8. TIN number */}
+              <div>
+                <label className="block  font-medium mb-1">
+                  TIN number
+                </label>
+                <input
+                  type="text"
+                  placeholder="Write here"
+                  className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none"
+                />
+              </div>
+
+              {/* 9. Business registration number */}
+              <div>
+                <label className="block  font-medium mb-1">
+                  Business registration number
+                </label>
+                <input
+                  type="text"
+                  placeholder="Write here"
+                  className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none"
+                />
+              </div>
+            </form>
+
+            {/* Next Button at the bottom */}
+            <div className="text-center mt-6">
+              <button
+                className="btn-next transition"
+                onClick={() => {
+                  console.log("Form submitted")
+                  setShowModal(false)
+                  setShowSecondModal(false)
                 }}
               >
                 Next
