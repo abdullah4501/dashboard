@@ -1,4 +1,3 @@
-import { FiSquare } from "react-icons/fi"
 import { useState } from "react"
 
 export default function Tables() {
@@ -37,6 +36,7 @@ export default function Tables() {
       status: "Complete",
     },
   ]
+
   const leads = [
     {
       img: "./images/user2.jpg",
@@ -92,33 +92,31 @@ export default function Tables() {
 
   return (
     <>
+      {/* ORDERS TABLE */}
       <div className="mt-6">
         <h2 className="text-xl font-semibold mb-4">Orders</h2>
-        <div className="overflow-x-auto">
-          <table className="w-full border-collapse orders">
+        <div className="overflow-x-auto w-full">
+          <table className="min-w-full table-auto border-collapse orders">
             <thead>
-              <tr className="bg-black text-white">
+              <tr className="bg-black text-white whitespace-nowrap">
                 {/* Header Icon Column */}
                 <th className="py-3 px-4 text-center">
                   <span className="mx-auto hdr-box" />
                 </th>
-                <th className="py-3 px-4 text-left font-medium">
-                  Order number
-                </th>
+                <th className="py-3 px-4 text-left font-medium">Order number</th>
                 <th className="py-3 px-4 text-left font-medium">Date</th>
-                <th className="py-3 px-4 text-left font-medium">
-                  Client name
-                </th>
+                <th className="py-3 px-4 text-left font-medium">Client name</th>
                 <th className="py-3 px-4 text-left font-medium">Item</th>
                 <th className="py-3 px-4 text-left font-medium">Amount</th>
-                <th className="py-3 px-4 text-left font-medium rounded-tr-xl">
-                  Status
-                </th>
+                <th className="py-3 px-4 text-left font-medium rounded-tr-xl">Status</th>
               </tr>
             </thead>
             <tbody>
               {orders.map((order, idx) => (
-                <tr key={idx} className="border-b-2 border-b-gray-100 last:border-b-0">
+                <tr
+                  key={idx}
+                  className="border-b-2 border-b-gray-100 last:border-b-0 whitespace-nowrap"
+                >
                   <td className="py-[22px] px-4 text-center">
                     <input
                       type="checkbox"
@@ -156,12 +154,13 @@ export default function Tables() {
         </div>
       </div>
 
+      {/* LEADS TABLE */}
       <div className="mt-6">
         <h2 className="text-xl font-semibold mb-4">Leads</h2>
-        <div className="overflow-x-auto">
-          <table className="w-full border-collapse leads">
+        <div className="overflow-x-auto w-full">
+          <table className="min-w-full table-auto border-collapse leads">
             <thead>
-              <tr className="bg-black text-white">
+              <tr className="bg-black text-white whitespace-nowrap">
                 {/* Header Icon Column */}
                 <th className="py-3 px-4 text-center d-flex">
                   <span className="mx-auto hdr-box " />
@@ -175,7 +174,10 @@ export default function Tables() {
             </thead>
             <tbody>
               {leads.map((lead, idx) => (
-                <tr key={idx} className="border-b-2 border-b-gray-100 last:border-b-0">
+                <tr
+                  key={idx}
+                  className="border-b-2 border-b-gray-100 last:border-b-0 whitespace-nowrap"
+                >
                   <td className="py-[22px] px-4 text-center">
                     <input
                       type="checkbox"
@@ -185,7 +187,7 @@ export default function Tables() {
                     />
                   </td>
                   <td className="py-3 px-4 font-semibold user">
-                    <span className="user-icon ">
+                    <span className="user-icon">
                       <img src={lead.img} alt="User" />
                     </span>
                     {lead.name}
@@ -193,9 +195,7 @@ export default function Tables() {
                   <td className="py-3 px-4 font-semibold">{lead.email}</td>
                   <td className="py-3 px-4 font-semibold">{lead.number}</td>
                   <td className="py-3 px-4 font-semibold">{lead.location}</td>
-                  <td className="py-3 px-4 font-semibold">
-                    {truncateWords(lead.message)}
-                  </td>
+                  <td className="py-3 px-4 font-semibold">{truncateWords(lead.message)}</td>
                 </tr>
               ))}
             </tbody>
@@ -203,12 +203,13 @@ export default function Tables() {
         </div>
       </div>
 
+      {/* RECENT MESSAGES TABLE */}
       <div className="mt-6">
         <h2 className="text-xl font-semibold mb-4">Recent Messages</h2>
-        <div className="overflow-x-auto">
-          <table className="w-full border-collapse leads">
+        <div className="overflow-x-auto w-full">
+          <table className="min-w-full table-auto border-collapse leads">
             <thead>
-              <tr className="bg-black text-white">
+              <tr className="bg-black text-white whitespace-nowrap">
                 {/* Header Icon Column */}
                 <th className="py-3 px-4 text-center d-flex">
                   <span className="mx-auto hdr-box " />
@@ -222,7 +223,10 @@ export default function Tables() {
             </thead>
             <tbody>
               {leads.map((lead, idx) => (
-                <tr key={idx} className="border-b-2 border-b-gray-100 last:border-b-0">
+                <tr
+                  key={idx}
+                  className="border-b-2 border-b-gray-100 last:border-b-0 whitespace-nowrap"
+                >
                   <td className="py-[22px] px-4 text-center">
                     <input
                       type="checkbox"
@@ -232,7 +236,7 @@ export default function Tables() {
                     />
                   </td>
                   <td className="py-3 px-4 font-semibold user">
-                    <span className="user-icon ">
+                    <span className="user-icon">
                       <img src={lead.img} alt="User" />
                     </span>
                     {lead.name}
@@ -240,9 +244,7 @@ export default function Tables() {
                   <td className="py-3 px-4 font-semibold">{lead.email}</td>
                   <td className="py-3 px-4 font-semibold">{lead.number}</td>
                   <td className="py-3 px-4 font-semibold">{lead.location}</td>
-                  <td className="py-3 px-4 font-semibold">
-                    {truncateWords(lead.message)}
-                  </td>
+                  <td className="py-3 px-4 font-semibold">{truncateWords(lead.message)}</td>
                 </tr>
               ))}
             </tbody>
