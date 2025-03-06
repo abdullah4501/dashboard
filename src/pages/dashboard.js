@@ -221,7 +221,6 @@ export default function Dashboard() {
                       {stat.growth}
                     </div>
                   </div>
-                  {/* MINI-CHART with straight lines and bigger dips */}
                   <div className="h-16 mt-2 w-[50%]">
                     <ApexChart
                       options={{
