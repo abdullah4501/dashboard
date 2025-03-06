@@ -108,12 +108,12 @@ export default function Tables() {
           <table className="min-w-full table-auto border-collapse orders">
             <thead>
               <tr className="bg-black text-white whitespace-nowrap">
-                <th className="py-3 px-4 text-center">
+                <th className="py-3 px-4 text-center flex justify-center">
                   <input
                     type="checkbox"
                     checked={orders.every((_, idx) => selectedRows[`orders-${idx}`])}
                     onChange={() => handleHeaderCheckboxChange("orders", orders)}
-                    className="h-5 w-5 accent-[#FBB040] rounded-lg border-gray-300 focus:ring-0 cursor-pointer custom-checkbox appearance-none"
+                    className="h-5 w-5 accent-[#FBB040] rounded-lg border-gray-300 focus:ring-0 cursor-pointer custom-checkbox"
                   />
                 </th>
                 <th className="py-3 px-4 text-left font-medium">Order number</th>
@@ -168,12 +168,12 @@ export default function Tables() {
           <table className="min-w-full table-auto border-collapse leads">
             <thead>
               <tr className="bg-black text-white whitespace-nowrap">
-                <th className="py-3 px-4 text-center">
+                <th className="py-3 px-4 text-center flex justify-center">
                   <input
                     type="checkbox"
                     checked={leads.every((_, idx) => selectedRows[`leads-${idx}`])}
                     onChange={() => handleHeaderCheckboxChange("leads", leads)}
-                    className="h-5 w-5 accent-[#FBB040] rounded-lg border-gray-300 focus:ring-0 cursor-pointer custom-checkbox appearance-none"
+                    className="h-5 w-5 accent-[#FBB040] rounded-lg border-gray-300 focus:ring-0 cursor-pointer custom-checkbox"
                   />
                   
                 </th>
@@ -219,12 +219,12 @@ export default function Tables() {
           <table className="min-w-full table-auto border-collapse leads">
             <thead>
               <tr className="bg-black text-white whitespace-nowrap">
-                <th className="py-3 px-4 text-center">
+                <th className="py-3 px-4 text-center flex justify-center">
                   <input
                     type="checkbox"
                     checked={leads.every((_, idx) => selectedRows[`messages-${idx}`])}
                     onChange={() => handleHeaderCheckboxChange("messages", leads)}
-                    className="h-5 w-5 accent-[#FBB040] rounded-lg border-gray-300 focus:ring-0 cursor-pointer custom-checkbox appearance-none"
+                    className="h-5 w-5 accent-[#FBB040] rounded-lg border-gray-300 focus:ring-0 cursor-pointer custom-checkbox"
                   />
                 </th>
                 <th className="py-3 px-4 text-left font-medium">Name</th>

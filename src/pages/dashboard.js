@@ -1,18 +1,12 @@
 // pages/dashboard.js
-import React from "react"
+import React, { useState } from "react"
 import dynamic from "next/dynamic"
 import Layout from "../components/Layout"
 import Verify from "../components/Verify"
 import Tables from "@/components/Tables"
-import { FiCalendar } from "react-icons/fi"
+import { FiCalendar, FiChevronDown  } from "react-icons/fi"
 
-// Dynamically import ApexCharts to avoid SSR issues in Next.js
 const ApexChart = dynamic(() => import("react-apexcharts"), { ssr: false })
-
-/**
- * MAIN "Sales 2022" CHART
- * Straight line, data under 3k so y-axis can show 0, 1k, 2k, 3k.
- */
 const mainChartSeries = [
   {
     name: "Sales 2022",
@@ -29,7 +23,7 @@ const mainChartOptions = {
   colors: ["#FBB040"], // Orange line color
   dataLabels: { enabled: false },
   stroke: {
-    curve: "smooth", // No curve
+    curve: "smooth", // Curved line
     width: 3,
   },
   fill: {
@@ -76,7 +70,6 @@ const mainChartOptions = {
 
 /**
  * "This month statistics" mini-charts
- * We keep your data and design as-is.
  */
 const statsData = [
   {
@@ -117,48 +110,78 @@ const statsData = [
 ]
 
 export default function Dashboard() {
+  const [selectedTab, setSelectedTab] = useState("Today sales")
+  const [dropdownOpen, setDropdownOpen] = useState(false)
+  const tabs = [
+    "Today sales",
+    "Today number of orders",
+    "Total leads/Chats",
+    "Total sales",
+    "Total orders",
+  ]
+
+  const handleSelect = (tab) => {
+    setSelectedTab(tab)
+    setDropdownOpen(false)
+  }
+
   return (
     <Layout>
       {/* PAGE TITLE */}
       <h1 className="text-2xl font-semibold text-gray-800 mb-4">Dashboard</h1>
 
-      {/* TABS ROW */}
-      <div className="flex space-x-4 mb-6">
+      <div className="hidden md:flex mb-6 overflow-x-auto flex-nowrap space-x-4 whitespace-nowrap">
+        {tabs.map((tab) => (
+          <button
+            key={tab}
+            onClick={() => setSelectedTab(tab)}
+            className={`flex-shrink-0 px-2 py-2 font-medium text-[18px] transition ${
+              selectedTab === tab
+                ? "text-[#FBB040] border-b-2 border-[#FBB040]"
+                : "text-gray-600 hover:bg-gray-200"
+            }`}
+          >
+            {tab}
+          </button>
+        ))}
+      </div>
+
+      {/* Dropdown for small and tablet screens */}
+      <div className="md:hidden mb-6 relative">
         <button
-          className="px-2 py-2 text-[#FBB040] font-medium text-[18px] text-left"
-          style={{ borderBottom: "2px solid #FBB040" }}
+          onClick={() => setDropdownOpen(!dropdownOpen)}
+          className="w-full flex items-center justify-between px-4 py-2 bg-gray-100 text-gray-700"
         >
-          Today sales
+          <span className="font-medium text-[18px]">{selectedTab}</span>
+          <FiChevronDown />
         </button>
-        <button className="px-2 py-2 rounded-full text-gray-600 font-medium text-[18px] hover:bg-gray-200 transition text-left">
-          Today number of orders
-        </button>
-        <button className="px-2 py-2 rounded-full text-gray-600 font-medium text-[18px] hover:bg-gray-200 transition text-left">
-          Total leads/Chats
-        </button>
-        <button className="px-2 py-2 rounded-full text-gray-600 font-medium text-[18px] hover:bg-gray-200 transition text-left">
-          Total sales
-        </button>
-        <button className="px-2 py-2 rounded-full text-gray-600 font-medium text-[18px] hover:bg-gray-200 transition text-left">
-          Total orders
-        </button>
+        {dropdownOpen && (
+          <div className="absolute mt-2 w-full bg-white shadow z-10">
+            {tabs.map((tab) => (
+              <button
+                key={tab}
+                onClick={() => handleSelect(tab)}
+                style={{borderRadius: '0'}}
+                className={`block w-full text-left px-2 py-2 text-[18px] font-medium transition ${
+                  selectedTab === tab ? "bg-gray-100 text-[#FBB040]" : "text-gray-700"
+                }`}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* MAIN CHART: "Sales 2022" */}
       <div className="bg-white rounded-xl shadow p-6">
         <div className="flex items-center justify-between mb-4">
           <div>
-            <h2
-              className="font-medium"
-              style={{ color: "#9291A5", fontSize: "18px" }}
-            >
+            <h2 className="font-medium" style={{ color: "#9291A5", fontSize: "18px" }}>
               Sales 2022
             </h2>
             <div className="flex items-baseline space-x-2 mt-1">
-              <span
-                className="text-4xl font-bold"
-                style={{ color: "#1E1B39" }}
-              >
+              <span className="text-4xl font-bold" style={{ color: "#1E1B39" }}>
                 $12.7k
               </span>
               <p className="text-sm text-green-500">
@@ -174,7 +197,7 @@ export default function Dashboard() {
             <FiCalendar className="ml-2" />
           </button>
         </div>
-        {/* Straight line area chart with 0, 1k, 2k, 3k on the y-axis */}
+        {/* Curved line area chart with 0, 1k, 2k, 3k on the y-axis */}
         <ApexChart
           options={mainChartOptions}
           series={mainChartSeries}
@@ -198,7 +221,7 @@ export default function Dashboard() {
           </button>
         </div>
 
-        {/* GRID OF 5 MINI-CARDS */}
+        {/* Responsive grid for mini-cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
           {statsData.map((stat) => {
             // Determine growth color
@@ -221,6 +244,7 @@ export default function Dashboard() {
                       {stat.growth}
                     </div>
                   </div>
+                  {/* Mini chart with straight lines */}
                   <div className="h-16 mt-2 w-[50%]">
                     <ApexChart
                       options={{
@@ -249,4 +273,3 @@ export default function Dashboard() {
     </Layout>
   )
 }
-
