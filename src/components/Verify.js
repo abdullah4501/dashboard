@@ -1,23 +1,27 @@
 import { useState } from "react"
-import { FiBriefcase, FiUser } from "react-icons/fi"
+import { FiBriefcase, FiUser, FiUpload } from "react-icons/fi"
 
 export default function Verify() {
   const [showModal, setShowModal] = useState(false)
   const [selectedType, setSelectedType] = useState(null)
 
-  // Controls the second modal
+  // Step 2 control
   const [showSecondModal, setShowSecondModal] = useState(false)
+  // Step 3 control (new)
+  const [showThirdModal, setShowThirdModal] = useState(false)
 
   // Open the first modal
   const handleOpenModal = () => {
     setShowModal(true)
     setShowSecondModal(false)
+    setShowThirdModal(false)
   }
 
   // Close everything
   const handleCloseModal = () => {
     setShowModal(false)
     setShowSecondModal(false)
+    setShowThirdModal(false)
   }
 
   return (
@@ -53,7 +57,7 @@ export default function Verify() {
       </div>
 
       {/* ---------------- FIRST MODAL (Step 1) ---------------- */}
-      {showModal && !showSecondModal && (
+      {showModal && !showSecondModal && !showThirdModal && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-[rgba(0,0,0,0.7)]"
           onClick={handleCloseModal}
@@ -118,7 +122,7 @@ export default function Verify() {
       )}
 
       {/* ---------------- SECOND MODAL (Step 2) ---------------- */}
-      {showModal && showSecondModal && (
+      {showModal && showSecondModal && !showThirdModal && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-[rgba(0,0,0,0.7)]"
           onClick={handleCloseModal}
@@ -250,8 +254,106 @@ export default function Verify() {
                 className="btn-next transition"
                 onClick={() => {
                   console.log("Form submitted")
+                  // Go to step 3
+                  setShowSecondModal(false)
+                  setShowThirdModal(true)
+                }}
+              >
+                Next
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ---------------- THIRD MODAL (Step 3) ---------------- */}
+      {showModal && showThirdModal && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-[rgba(0,0,0,0.7)]"
+          onClick={handleCloseModal}
+        >
+          <div
+            className="business-select shadow-lg p-8 w-[440px] relative"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h2 className="text-xl font-medium mb-2">Add your company details</h2>
+            <p className="text-gray-500 mb-6 leading-relaxed">
+              Classify your business type based on industry, allowing for
+              tailored strategies and targeted approaches.
+            </p>
+
+            {/* FILE UPLOAD SECTION */}
+            <div className="space-y-6 uploads">
+              {/* 1. Business registration certificate */}
+              <h3 className="text-lg font-bold mb-0">Business registration certificate</h3>
+              <p className="text-xs mb-3 text">
+                Add your documents here, and you can upload up to 5 files max
+              </p>
+              <div className="upload-section border-dashed border-2 border-[#1849D6] rounded-[12px] p-2 text-center mb-5">
+                <span className="flex justify-center mb-3">
+                  <img src="./images/upload.png" alt="" />
+                </span>
+                <div className="drag-drop-area py-1">
+                  <p className=" mb-0">Drag your file(s) or <span>browse</span></p>
+                  <p className=" limit">Max 10 MB files are allowed</p>
+                </div>
+              </div>
+              <h3 className="text-lg font-bold mb-0">Business registration certificate</h3>
+              <p className="text-xs mb-3 text">
+                Add your documents here, and you can upload up to 5 files max
+              </p>
+              <div className="upload-section border-dashed border-2 border-[#1849D6] rounded-[12px] p-2 text-center mb-5">
+                <span className="flex justify-center mb-3">
+                  <img src="./images/upload.png" alt="" />
+                </span>
+                <div className="drag-drop-area py-1">
+                  <p className=" mb-0">Drag your file(s) or <span>browse</span></p>
+                  <p className=" limit">Max 10 MB files are allowed</p>
+                </div>
+              </div>
+              <h3 className="text-lg font-bold mb-0">Business registration certificate</h3>
+              <p className="text-xs mb-3 text">
+                Add your documents here, and you can upload up to 5 files max
+              </p>
+              <div className="upload-section border-dashed border-2 border-[#1849D6] rounded-[12px] p-2 text-center mb-5">
+                <span className="flex justify-center mb-3">
+                  <img src="./images/upload.png" alt="" />
+                </span>
+                <div className="drag-drop-area py-1">
+                  <p className=" mb-0">Drag your file(s) or <span>browse</span></p>
+                  <p className=" limit">Max 10 MB files are allowed</p>
+                </div>
+              </div>
+              <h3 className="text-lg font-bold mb-0">Business registration certificate</h3>
+              <p className="text-xs mb-3 text">
+                Add your documents here, and you can upload up to 5 files max
+              </p>
+              <div className="upload-section border-dashed border-2 border-[#1849D6] rounded-[12px] p-2 text-center mb-5">
+                <span className="flex justify-center mb-3">
+                  <img src="./images/upload.png" alt="" />
+                </span>
+                <div className="drag-drop-area py-1">
+                  <p className=" mb-0">Drag your file(s) or <span>browse</span></p>
+                  <p className=" limit">Max 10 MB files are allowed</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Note about supported file types */}
+            <p className="text-xs text-gray-400 mt-4">
+              Only support .jpg, .png, .svg and .zip files
+            </p>
+
+            {/* Next Button at the bottom */}
+            <div className="text-center mt-6">
+              <button
+                className="btn-next transition"
+                onClick={() => {
+                  console.log("File types submitted")
+                  // End or proceed
                   setShowModal(false)
                   setShowSecondModal(false)
+                  setShowThirdModal(false)
                 }}
               >
                 Next
