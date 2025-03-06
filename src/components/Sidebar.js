@@ -26,7 +26,7 @@ export default function Sidebar() {
       </div>
 
       {/* Navigation */}
-      <nav className="flex-1 mt-8 px-2">
+      <nav className="sidebar-nav flex-1 mt-8 px-2">
         <ul className="space-y-4">
           {navItems.map((item) => {
             const isActive = router.pathname === item.href
@@ -34,7 +34,7 @@ export default function Sidebar() {
               <li key={item.name}>
                 <Link legacyBehavior href={item.href}>
                   <a
-                    className={`flex items-center gap-3 transition-colors rounded-lg text-base font-semibold px-6 py-3
+                    className={`flex items-center gap-3 transition-colors rounded-lg text-base font-medium px-6 py-3
                       ${
                         isActive
                           ? "bg-[#FBB040] text-white"

@@ -29,7 +29,9 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
-
+.sidebar-nav ul li a span{
+  color: #fff;
+}
 .hdr-box{
   height: 20px;
   display: block;
@@ -109,4 +111,16 @@ border-color: #FBB040;
   padding: 12px;
   cursor: pointer;
   color: #fff;
+}
+.company-details-form label{
+  color: #121212;
+  font-size: 14px;
+  
+}
+.company-details-form input{
+  color: #121212;
+  font-size: 14px;
+  border-color: #F5F6FA;
+  border-radius: 16px;
+  background-color: #fcfcfc;
 }
