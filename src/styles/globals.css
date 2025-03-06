@@ -87,6 +87,7 @@ border-color: #FBB040;
 .business-select{
   background-color: #fff;
   border-radius: 20px;
+  width: 35%;
 }
 .business-select h2{
   color: #282828;
@@ -121,6 +122,30 @@ border-color: #FBB040;
   color: #121212;
   font-size: 14px;
   border-color: #F5F6FA;
-  border-radius: 16px;
-  background-color: #fcfcfc;
+  background-color: #bbc4e90f;
+}
+.company-details-form input::placeholder{
+  color: #A8AEBF;
+  font-size: 14px;
+}
+.upload-section p{
+  color: #0B0B0B;
+  font-size: 14px;
+}
+.upload-section p span{
+  font-weight: 600;
+}
+.upload-section .limit{
+  color: #6D6D6D;
+}
+.uploads .text {
+  color: #6D6D6D;
+  font-size: 14px;
+}
+.calender{
+  color: #0E0E0E;
+  font-size: 12px;
+  border: 1px solid #E7E7E7;
+  border-radius: 8px;
+  padding: 8px;
 }
