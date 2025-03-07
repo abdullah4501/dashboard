@@ -130,6 +130,8 @@ export default function Dashboard() {
       {/* PAGE TITLE */}
       <h1 className="text-2xl font-semibold text-gray-800 mb-4">Dashboard</h1>
 
+      {/* MAIN CHART: "Sales 2022" */}
+      <div className="bg-white rounded-[20px] shadow p-6 pt-3">
       <div className="hidden md:flex mb-6 overflow-x-auto flex-nowrap space-x-4 whitespace-nowrap">
         {tabs.map((tab) => (
           <button
@@ -145,8 +147,6 @@ export default function Dashboard() {
           </button>
         ))}
       </div>
-
-      {/* Dropdown for small and tablet screens */}
       <div className="md:hidden mb-6 relative">
         <button
           onClick={() => setDropdownOpen(!dropdownOpen)}
@@ -172,9 +172,6 @@ export default function Dashboard() {
           </div>
         )}
       </div>
-
-      {/* MAIN CHART: "Sales 2022" */}
-      <div className="bg-white rounded-xl shadow p-6">
         <div className="flex items-center justify-between mb-4">
           <div>
             <h2 className="font-medium" style={{ color: "#9291A5", fontSize: "18px" }}>
@@ -192,7 +189,7 @@ export default function Dashboard() {
               </p>
             </div>
           </div>
-          <button className="flex items-center bg-gray-100 text-gray-600 px-4 py-2 rounded-full hover:bg-gray-200 transition">
+          <button className="flex items-center bg-gray-100 text-gray-600 px-4 py-2 rounded-[20px] hover:bg-gray-200 transition">
             This month
             <FiCalendar className="ml-2" />
           </button>

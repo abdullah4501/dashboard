@@ -26,7 +26,7 @@ export default function Verify() {
 
   return (
     <>
-      <div className="bg-white rounded-xl shadow px-6 mt-6 grid grid-cols-1 md:grid-cols-2 justify-between">
+      <div className="bg-white rounded-[20px] shadow px-6 mt-6 grid grid-cols-1 md:grid-cols-2 justify-between">
         <div className="max-w-lg pr-4 py-6">
           <h3 className="text-2xl font-semibold text-gray-800 mb-2">
             This month statistics

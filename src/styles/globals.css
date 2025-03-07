@@ -170,3 +170,48 @@ border-color: #FBB040;
     justify-content: start;
   }
 }
+
+/* Responsive Table CSS */
+@media screen and (max-width: 767px) {
+  .responsive-table,
+  .responsive-table thead,
+  .responsive-table tbody,
+  .responsive-table th,
+  .responsive-table td,
+  .responsive-table tr {
+    display: block;
+  }
+
+  .responsive-table thead tr {
+    display: none;
+  }
+
+  .responsive-table tr {
+    margin-bottom: 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .responsive-table td {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    text-align: left;
+    border: none;
+    border-bottom: 1px solid #e5e7eb;
+    position: relative;
+  }
+
+  .responsive-table td:last-child {
+    border-bottom: 0;
+  }
+
+  .responsive-table td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    width: 40%;
+    padding-right: 1rem;
+    color: #6b7280; /* Gray-500 */
+  }
+}

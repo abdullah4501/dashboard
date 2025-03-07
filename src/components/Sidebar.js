@@ -20,7 +20,7 @@ export default function Sidebar() {
   return (
     <>
       {/* Mobile Toggle Button (visible below md) */}
-      <div className="md:hidden fixed top-4 left-4 z-50">
+      <div className="lg:hidden fixed top-4 left-4 z-50">
         <button
           onClick={toggleSidebar}
           className="bg-black text-white p-2 rounded-full focus:outline-none"
@@ -32,12 +32,13 @@ export default function Sidebar() {
       {/* Sidebar */}
       <aside
         className={`
-          bg-black text-white flex flex-col z-40
-          transition-transform duration-300 ease-in-out
-          fixed top-0 left-0 w-64 h-full
-          ${isOpen ? "translate-x-0" : "-translate-x-full"}
-          md:static md:h-auto md:translate-x-0 md:w-64
-        `}
+    bg-black text-white flex flex-col z-40
+    transition-transform duration-300 ease-in-out
+    fixed top-0 left-0 w-64 h-full
+    ${isOpen ? "translate-x-0" : "-translate-x-full"}
+    lg:static lg:h-auto lg:translate-x-0 lg:w-64
+    lg:sticky lg:top-0 lg:h-screen
+  `}
       >
         {/* Brand / Logo */}
         <div className="flex items-center justify-center py-4">
@@ -47,7 +48,6 @@ export default function Sidebar() {
             className="h-16 object-contain"
           />
         </div>
-
         {/* Navigation */}
         <nav className="sidebar-nav flex-1 mt-8 px-2">
           <ul className="space-y-4">
@@ -75,7 +75,6 @@ export default function Sidebar() {
             })}
           </ul>
         </nav>
-
         {/* Sidebar Footer */}
         <div className="h-16 px-4 flex items-center justify-center border-t border-gray-700">
           <button className="text-sm">Logout</button>

@@ -8,7 +8,7 @@ export default function Layout({ children }) {
       <Sidebar />
 
       {/* Main content area */}
-      <div className="flex-1 flex flex-col">
+      <div className="flex-1 flex flex-col bg-[#F5F6FA]">
         {/* Header */}
         <Header />
         {/* Page Content */}

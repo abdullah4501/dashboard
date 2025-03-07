@@ -1,4 +1,3 @@
-// src/components/Header.js
 import { FiSearch, FiBell } from "react-icons/fi"
 
 export default function Header() {
