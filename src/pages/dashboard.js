@@ -10,7 +10,7 @@ const ApexChart = dynamic(() => import("react-apexcharts"), { ssr: false })
 const mainChartSeries = [
   {
     name: "Sales 2022",
-    data: [300, 1800, 500, 2700, 1000, 2800, 2200, 1500], // All <= 3000
+    data: [300, 1800, 500, 2700, 1000, 2800, 2200, 1500], 
   },
 ]
 
@@ -20,10 +20,10 @@ const mainChartOptions = {
     height: 350,
     toolbar: { show: false },
   },
-  colors: ["#FBB040"], // Orange line color
+  colors: ["#FBB040"],
   dataLabels: { enabled: false },
   stroke: {
-    curve: "smooth", // Curved line
+    curve: "smooth",
     width: 3,
   },
   fill: {
@@ -48,7 +48,7 @@ const mainChartOptions = {
   yaxis: {
     min: 0,
     max: 3000,
-    tickAmount: 3, // Produces 4 ticks: 0, 1k, 2k, 3k
+    tickAmount: 3,
     labels: {
       style: { colors: "#666" },
       formatter: (val) => {
@@ -68,9 +68,6 @@ const mainChartOptions = {
   },
 }
 
-/**
- * "This month statistics" mini-charts
- */
 const statsData = [
   {
     title: "Today sales",
@@ -127,10 +124,8 @@ export default function Dashboard() {
 
   return (
     <Layout>
-      {/* PAGE TITLE */}
       <h1 className="text-2xl font-semibold text-gray-800 mb-4">Dashboard</h1>
 
-      {/* MAIN CHART: "Sales 2022" */}
       <div className="bg-white rounded-[20px] shadow p-6 pt-3">
       <div className="hidden md:flex mb-6 overflow-x-auto flex-nowrap space-x-4 whitespace-nowrap">
         {tabs.map((tab) => (
@@ -172,8 +167,8 @@ export default function Dashboard() {
           </div>
         )}
       </div>
-        <div className="flex items-center justify-between mb-4">
-          <div>
+        <div className="flex items-center justify-between mb-4 chart-header">
+          <div className="left">
             <h2 className="font-medium" style={{ color: "#9291A5", fontSize: "18px" }}>
               Sales 2022
             </h2>
@@ -189,12 +184,11 @@ export default function Dashboard() {
               </p>
             </div>
           </div>
-          <button className="flex items-center bg-gray-100 text-gray-600 px-4 py-2 rounded-[20px] hover:bg-gray-200 transition">
+          <button className="flex chart-btn items-center bg-gray-100 text-gray-600 px-4 py-2 rounded-[20px] hover:bg-gray-200 transition justify-between">
             This month
             <FiCalendar className="ml-2" />
           </button>
         </div>
-        {/* Curved line area chart with 0, 1k, 2k, 3k on the y-axis */}
         <ApexChart
           options={mainChartOptions}
           series={mainChartSeries}
@@ -203,7 +197,6 @@ export default function Dashboard() {
         />
       </div>
 
-      {/* "This month statistics" SECTION */}
       <div className="bg-white rounded-xl shadow p-6 mt-6">
         <div className="flex items-center justify-between mb-4">
           <div>
@@ -218,10 +211,8 @@ export default function Dashboard() {
           </button>
         </div>
 
-        {/* Responsive grid for mini-cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
           {statsData.map((stat) => {
-            // Determine growth color
             const isNegative = stat.growth.startsWith("-")
             const growthColor = isNegative ? "text-red-500" : "text-green-500"
 
@@ -241,7 +232,6 @@ export default function Dashboard() {
                       {stat.growth}
                     </div>
                   </div>
-                  {/* Mini chart with straight lines */}
                   <div className="h-16 mt-2 w-[50%]">
                     <ApexChart
                       options={{

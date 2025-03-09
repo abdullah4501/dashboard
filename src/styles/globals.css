@@ -172,7 +172,7 @@ border-color: #FBB040;
 }
 
 /* Responsive Table CSS */
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 767.98px) {
   .responsive-table,
   .responsive-table thead,
   .responsive-table tbody,
@@ -212,6 +212,21 @@ border-color: #FBB040;
     font-weight: 600;
     width: 40%;
     padding-right: 1rem;
-    color: #6b7280; /* Gray-500 */
+    color: #6b7280; 
+  }
+  .business-type{
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 450px) {
+  .chart-header{
+    flex-direction: column;
+  }
+  .chart-header .left{
+    width: 100%;
+  }
+  .chart-header .chart-btn{
+    width: 100%;
+    margin-top: 10px;
   }
 }

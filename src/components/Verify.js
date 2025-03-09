@@ -59,7 +59,7 @@ export default function Verify() {
           onClick={handleCloseModal}
         >
           <div
-            className="business-select shadow-lg p-8 w-[440px] relative"
+            className="business-select shadow-lg lg:p-8 p-3 w-[440px] relative"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-center mb-4">
