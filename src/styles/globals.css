@@ -218,6 +218,11 @@ border-color: #FBB040;
     flex-direction: column;
   }
 }
+.chart-btn{
+  font-size: 12px;
+  color: #0E0E0E;
+  border: 1px solid #E7E7E7;
+}
 @media screen and (max-width: 450px) {
   .chart-header{
     flex-direction: column;

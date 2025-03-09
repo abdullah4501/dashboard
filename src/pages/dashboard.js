@@ -184,7 +184,7 @@ export default function Dashboard() {
               </p>
             </div>
           </div>
-          <button className="flex chart-btn items-center bg-gray-100 text-gray-600 px-4 py-2 rounded-[20px] hover:bg-gray-200 transition justify-between">
+          <button className="flex chart-btn items-center px-4 py-2 rounded-[8px] hover:bg-gray-200 transition justify-between">
             This month
             <FiCalendar className="ml-2" />
           </button>
@@ -205,7 +205,7 @@ export default function Dashboard() {
             </h3>
             <p className="text-sm text-gray-500">Track your monthly consumption</p>
           </div>
-          <button className="flex items-center bg-gray-100 text-gray-600 px-4 py-2 rounded-full hover:bg-gray-200 transition">
+          <button className="flex items-center chart-btn px-4 py-2 rounded-[8px] hover:bg-gray-200 transition">
             Today
             <FiCalendar className="ml-2" />
           </button>
