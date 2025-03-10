@@ -32,7 +32,7 @@ export default function Verify() {
             This month statistics
           </h3>
           <p className="text-[#9291A5]">
-          Embark on a journey of a lifetime with Wanderlust Adventures! We are your trusted travel companions, dedicated to curating extraordinary experiences that will leave you breathless. From mesmerizing landscapes to vibrant cultures, our expertly crafted itineraries will take you to the most captivating destinations across the globe.
+            Embark on a journey of a lifetime with Wanderlust Adventures! We are your trusted travel companions, dedicated to curating extraordinary experiences that will leave you breathless. From mesmerizing landscapes to vibrant cultures, our expertly crafted itineraries will take you to the most captivating destinations across the globe.
           </p>
           <button
             onClick={handleOpenModal}
@@ -52,7 +52,6 @@ export default function Verify() {
       </div>
 
 
-      {/* ---------------- FIRST MODAL (Step 1) ---------------- */}
       {showModal && !showSecondModal && !showThirdModal && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-[rgba(0,0,0,0.7)]"
@@ -81,9 +80,8 @@ export default function Verify() {
               {/* Company Button */}
               <div
                 onClick={() => setSelectedType("company")}
-                className={`company transition w-full ${
-                  selectedType === "company" ? "active" : ""
-                }`}
+                className={`company transition w-full ${selectedType === "company" ? "active" : ""
+                  }`}
               >
                 <FiBriefcase className="text-xl" />
                 <p>Company</p>
@@ -92,9 +90,8 @@ export default function Verify() {
               {/* Individual Button */}
               <div
                 onClick={() => setSelectedType("individual")}
-                className={`individual transition w-full ${
-                  selectedType === "individual" ? "active" : ""
-                }`}
+                className={`individual transition w-full ${selectedType === "individual" ? "active" : ""
+                  }`}
               >
                 <FiUser className="text-xl" />
                 <p>Individual</p>
@@ -117,29 +114,42 @@ export default function Verify() {
         </div>
       )}
 
-      {/* ---------------- SECOND MODAL (Step 2) ---------------- */}
       {showModal && showSecondModal && !showThirdModal && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-[rgba(0,0,0,0.7)]"
+          className="fixed inset-0 z-50 flex items-start justify-center bg-[rgba(0,0,0,0.7)] overflow-y-auto"
           onClick={handleCloseModal}
         >
           <div
-            className="business-select shadow-lg p-8 w-[440px] relative"
+            className="business-select bg-white rounded-xl shadow-lg p-8 w-[45%] mt-20 mb-20 mx-4 relative"
             onClick={(e) => e.stopPropagation()}
           >
+            {/* Optional close button in top-right corner */}
+            <button
+              onClick={handleCloseModal}
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
             <h2 className="text-xl font-medium mb-2">Add your company details</h2>
             <p className="text-gray-500 mb-6 leading-relaxed">
-              Classify your business type based on industry, allowing for
-              tailored strategies and targeted approaches.
+              Classify your business type based on industry, allowing for tailored
+              strategies and targeted approaches.
             </p>
 
             {/* The 9 Fields Form */}
             <form className="space-y-4 company-details-form">
               {/* 1. Company name */}
               <div>
-                <label className="block font-medium mb-1">
-                  Company name
-                </label>
+                <label className="block font-medium mb-1">Company name</label>
                 <input
                   type="text"
                   placeholder="Write here"
@@ -149,9 +159,7 @@ export default function Verify() {
 
               {/* 2. Registered address */}
               <div>
-                <label className="block  font-medium mb-1">
-                  Registered address
-                </label>
+                <label className="block font-medium mb-1">Registered address</label>
                 <input
                   type="text"
                   placeholder="Write here"
@@ -161,9 +169,7 @@ export default function Verify() {
 
               {/* 3. Email */}
               <div>
-                <label className="block  font-medium mb-1">
-                  Email
-                </label>
+                <label className="block font-medium mb-1">Email</label>
                 <input
                   type="email"
                   placeholder="Write here"
@@ -173,9 +179,7 @@ export default function Verify() {
 
               {/* 4. Phone number */}
               <div>
-                <label className="block  font-medium mb-1">
-                  Phone number
-                </label>
+                <label className="block font-medium mb-1">Phone number</label>
                 <input
                   type="tel"
                   placeholder="Write here"
@@ -185,9 +189,7 @@ export default function Verify() {
 
               {/* 5. Representative name */}
               <div>
-                <label className="block  font-medium mb-1">
-                  Representative name
-                </label>
+                <label className="block font-medium mb-1">Representative name</label>
                 <input
                   type="text"
                   placeholder="Write here"
@@ -197,9 +199,7 @@ export default function Verify() {
 
               {/* 6. Position */}
               <div>
-                <label className="block  font-medium mb-1">
-                  Position
-                </label>
+                <label className="block font-medium mb-1">Position</label>
                 <input
                   type="text"
                   placeholder="Write here"
@@ -209,9 +209,7 @@ export default function Verify() {
 
               {/* 7. Industry sector */}
               <div>
-                <label className="block  font-medium mb-1">
-                  Industry sector
-                </label>
+                <label className="block font-medium mb-1">Industry sector</label>
                 <input
                   type="text"
                   placeholder="Write here"
@@ -221,9 +219,7 @@ export default function Verify() {
 
               {/* 8. TIN number */}
               <div>
-                <label className="block  font-medium mb-1">
-                  TIN number
-                </label>
+                <label className="block font-medium mb-1">TIN number</label>
                 <input
                   type="text"
                   placeholder="Write here"
@@ -233,9 +229,7 @@ export default function Verify() {
 
               {/* 9. Business registration number */}
               <div>
-                <label className="block  font-medium mb-1">
-                  Business registration number
-                </label>
+                <label className="block font-medium mb-1">Business registration number</label>
                 <input
                   type="text"
                   placeholder="Write here"
@@ -249,9 +243,6 @@ export default function Verify() {
               <button
                 className="btn-next transition"
                 onClick={() => {
-                  console.log("Form submitted")
-                  // Go to step 3
-                  setShowSecondModal(false)
                   setShowThirdModal(true)
                 }}
               >
@@ -262,27 +253,45 @@ export default function Verify() {
         </div>
       )}
 
-      {/* ---------------- THIRD MODAL (Step 3) ---------------- */}
+
       {showModal && showThirdModal && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-[rgba(0,0,0,0.7)]"
+          className="fixed inset-0 z-50 flex items-start justify-center bg-[rgba(0,0,0,0.7)] overflow-y-auto"
           onClick={handleCloseModal}
         >
           <div
-            className="business-select shadow-lg p-8 w-[440px] relative"
+            className="business-select bg-white rounded-xl shadow-lg p-8 w-[45%] mx-4 my-20 relative"
             onClick={(e) => e.stopPropagation()}
           >
+            {/* Optional Close Button */}
+            <button
+              onClick={handleCloseModal}
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
             <h2 className="text-xl font-medium mb-2">Add your company details</h2>
             <p className="text-gray-500 mb-6 leading-relaxed">
-              Classify your business type based on industry, allowing for
-              tailored strategies and targeted approaches.
+              Classify your business type based on industry, allowing for tailored
+              strategies and targeted approaches.
             </p>
 
             {/* FILE UPLOAD SECTION */}
             <div className="space-y-6 uploads">
               {/* 1. Business registration certificate */}
-              <h3 className="text-lg font-bold mb-0">Business registration certificate</h3>
-              <p className="text-xs mb-3 text">
+              <h3 className="text-lg font-bold mb-0">
+                Business registration certificate
+              </h3>
+              <p className="text-xs mb-3">
                 Add your documents here, and you can upload up to 5 files max
               </p>
               <div className="upload-section border-dashed border-2 border-[#1849D6] rounded-[12px] p-2 text-center mb-5">
@@ -290,12 +299,18 @@ export default function Verify() {
                   <img src="./images/upload.png" alt="" />
                 </span>
                 <div className="drag-drop-area py-1">
-                  <p className=" mb-0">Drag your file(s) or <span>browse</span></p>
-                  <p className=" limit">Max 10 MB files are allowed</p>
+                  <p className="mb-0">
+                    Drag your file(s) or <span>browse</span>
+                  </p>
+                  <p className="limit">Max 10 MB files are allowed</p>
                 </div>
               </div>
-              <h3 className="text-lg font-bold mb-0">Business registration certificate</h3>
-              <p className="text-xs mb-3 text">
+
+              {/* 2. Another document */}
+              <h3 className="text-lg font-bold mb-0">
+                Business registration certificate
+              </h3>
+              <p className="text-xs mb-3">
                 Add your documents here, and you can upload up to 5 files max
               </p>
               <div className="upload-section border-dashed border-2 border-[#1849D6] rounded-[12px] p-2 text-center mb-5">
@@ -303,12 +318,18 @@ export default function Verify() {
                   <img src="./images/upload.png" alt="" />
                 </span>
                 <div className="drag-drop-area py-1">
-                  <p className=" mb-0">Drag your file(s) or <span>browse</span></p>
-                  <p className=" limit">Max 10 MB files are allowed</p>
+                  <p className="mb-0">
+                    Drag your file(s) or <span>browse</span>
+                  </p>
+                  <p className="limit">Max 10 MB files are allowed</p>
                 </div>
               </div>
-              <h3 className="text-lg font-bold mb-0">Business registration certificate</h3>
-              <p className="text-xs mb-3 text">
+
+              {/* 3. Another document */}
+              <h3 className="text-lg font-bold mb-0">
+                Business registration certificate
+              </h3>
+              <p className="text-xs mb-3">
                 Add your documents here, and you can upload up to 5 files max
               </p>
               <div className="upload-section border-dashed border-2 border-[#1849D6] rounded-[12px] p-2 text-center mb-5">
@@ -316,12 +337,18 @@ export default function Verify() {
                   <img src="./images/upload.png" alt="" />
                 </span>
                 <div className="drag-drop-area py-1">
-                  <p className=" mb-0">Drag your file(s) or <span>browse</span></p>
-                  <p className=" limit">Max 10 MB files are allowed</p>
+                  <p className="mb-0">
+                    Drag your file(s) or <span>browse</span>
+                  </p>
+                  <p className="limit">Max 10 MB files are allowed</p>
                 </div>
               </div>
-              <h3 className="text-lg font-bold mb-0">Business registration certificate</h3>
-              <p className="text-xs mb-3 text">
+
+              {/* 4. Another document */}
+              <h3 className="text-lg font-bold mb-0">
+                Business registration certificate
+              </h3>
+              <p className="text-xs mb-3">
                 Add your documents here, and you can upload up to 5 files max
               </p>
               <div className="upload-section border-dashed border-2 border-[#1849D6] rounded-[12px] p-2 text-center mb-5">
@@ -329,8 +356,10 @@ export default function Verify() {
                   <img src="./images/upload.png" alt="" />
                 </span>
                 <div className="drag-drop-area py-1">
-                  <p className=" mb-0">Drag your file(s) or <span>browse</span></p>
-                  <p className=" limit">Max 10 MB files are allowed</p>
+                  <p className="mb-0">
+                    Drag your file(s) or <span>browse</span>
+                  </p>
+                  <p className="limit">Max 10 MB files are allowed</p>
                 </div>
               </div>
             </div>
@@ -340,24 +369,25 @@ export default function Verify() {
               Only support .jpg, .png, .svg and .zip files
             </p>
 
-            {/* Next Button at the bottom */}
+            {/* Finish Button */}
             <div className="text-center mt-6">
               <button
                 className="btn-next transition"
                 onClick={() => {
                   console.log("File types submitted")
-                  // End or proceed
+                  // End the process
                   setShowModal(false)
                   setShowSecondModal(false)
                   setShowThirdModal(false)
                 }}
               >
-                Next
+                Finish
               </button>
             </div>
           </div>
         </div>
       )}
+
     </>
   )
 }
