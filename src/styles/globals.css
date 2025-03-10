@@ -100,7 +100,7 @@ border-color: #FBB040;
 .business-select{
   background-color: #fff;
   border-radius: 20px;
-  width: 35%;
+  /* width: 35%; */
 }
 .business-select h2{
   color: #282828;
@@ -215,7 +215,7 @@ border-color: #FBB040;
     color: #6b7280; 
   }
   .business-type{
-    flex-direction: column;
+    /* flex-direction: column; */
   }
 }
 .chart-btn{

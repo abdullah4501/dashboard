@@ -59,7 +59,7 @@ export default function Verify() {
           onClick={handleCloseModal}
         >
           <div
-            className="business-select shadow-lg lg:p-8 p-3 w-[440px] relative"
+            className="business-select shadow-lg p-8 lg:w-[35%] md:w-[55%] sm:w-[75%] relative"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-center mb-4">
@@ -77,11 +77,11 @@ export default function Verify() {
             </p>
 
             {/* Two Options: Company / Individual */}
-            <div className="business-type flex items-center justify-center gap-6 mb-6">
+            <div className="business-type flex items-center justify-between gap-6 mb-6">
               {/* Company Button */}
               <div
                 onClick={() => setSelectedType("company")}
-                className={`company transition ${
+                className={`company transition w-full ${
                   selectedType === "company" ? "active" : ""
                 }`}
               >
@@ -92,7 +92,7 @@ export default function Verify() {
               {/* Individual Button */}
               <div
                 onClick={() => setSelectedType("individual")}
-                className={`individual transition ${
+                className={`individual transition w-full ${
                   selectedType === "individual" ? "active" : ""
                 }`}
               >
