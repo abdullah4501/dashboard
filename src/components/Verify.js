@@ -120,7 +120,7 @@ export default function Verify() {
           onClick={handleCloseModal}
         >
           <div
-            className="business-select bg-white rounded-xl shadow-lg p-8 w-[45%] mt-20 mb-20 mx-4 relative"
+            className="business-select bg-white rounded-xl shadow-lg p-8 lg:w-[45%] md:w-[60%] mt-20 mb-20 mx-4 relative"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Optional close button in top-right corner */}
@@ -260,7 +260,7 @@ export default function Verify() {
           onClick={handleCloseModal}
         >
           <div
-            className="business-select bg-white rounded-xl shadow-lg p-8 w-[45%] mx-4 my-20 relative"
+            className="business-select bg-white rounded-xl shadow-lg p-8 lg:w-[45%] md:w-[60%] mx-4 my-20 relative"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Optional Close Button */}
