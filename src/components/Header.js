@@ -31,7 +31,7 @@ export default function Header() {
             className="w-9 h-9 rounded-full object-cover"
           />
           <div className="text-left">
-            <h2 className="text-sm font-semibold text-gray-800">Hi Muhammad</h2>
+            <h2 className="text-sm font-semibold text-gray-800">Hi Abdullah</h2>
             <p className="text-xs text-gray-500">Good morning</p>
           </div>
         </div>
