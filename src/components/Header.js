@@ -26,7 +26,7 @@ export default function Header() {
         {/* User Info: Image on the left, text on the right */}
         <div className="flex items-center space-x-3">
           <img
-            src="https://s3-alpha-sig.figma.com/img/50dc/f6f1/f08a80a5cef61bce7912ee4ad2dd923f?Expires=1742169600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=jEps4zQTtXz8BzCAbG88S3PlD6hwyUFj4QUk3XI3DahUZ4P4zW0aDa~ZfpFxp5x8Y-5oEusdlOVYkj6-F5mm2RAapoOMktlMYEIRRuEi2inZZROS6bNQUwVrsdu8ir5R5dOhpMn-LCAsgRccIYkQKu6E8Q4PlHG2MJo87ocspbeK6fE0OoxkLow1RQzqHXlot-KkQdjISs-DeyOoVCJoEj9Dc9MxFL-XNFMYyd2r-gBbO2wNE54Whg6OYacUbpyro~aUZGqNRY5YjCU7p1wA37qgTt-RqZZcMGq1SrBkPCcnaDgzEmPTqMshfdDLjqBFqxMHRSQKx6ro6UdoD1ipQQ__"
+            src="/images/admin.jpg"
             alt="User Avatar"
             className="w-9 h-9 rounded-full object-cover"
           />
